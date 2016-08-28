@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
+
+    <script data-require="angular.js@*" data-semver="1.5.9"
+            src="https://code.angularjs.org/1.5.8/angular.js">
+    </script>
+
+    <script src="app-ng.js"></script>
+
+</head>
+
+<body ng-app="AngGettingStarted">
+<h3>Hello from Angular JS!</h3>
+{{843/42}}
+
+<div ng-controller="mainController">
+    1. {{data.message}}
+</div>
+
+<div ng-controller="userController">
+    <div>
+        {{user.name}} at {{user.location}}
+    </div>
+    <div>{{error}}</div>
+
+    <img ng-src="{{user.avatar_url}}" title="{{user.avatar_url}}">
+</div>
+
+
+</body>
+
+</html>
