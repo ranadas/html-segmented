@@ -14,19 +14,47 @@
 </head>
 
 <body ng-app="AngGettingStarted">
-<h3>Hello from Angular JS!</h3>
+<h5>Angular JS!</h5>
 {{843/42}}
 
 <div ng-controller="mainController">
-    1. {{data.message}}
+    <i>{{data.message}}</i>
 </div>
-
+<div>&nbsp;</div>
 <div ng-controller="userController">
-    <div>
-        {{user.name}} at {{user.location}}
+    {{data.message}}  <b>{{data.username}}</b><div>&nbsp;</div><div>&nbsp;</div>
+    <!--
+    <form name="searchUser">
+        <input type="search" required placeholder="user name to search" ng-model="data.username"/>
+        <input type="submit" value="Search" ng-click="search(data.username)">
+    </form>
+    -->
+
+    <form name="searchUserAnotherWay" ng-submit="search(data.username)">
+        <input type="search" required placeholder="user name to search" ng-model="data.username"/>
+        <input type="submit" value="Search">
+    </form>
+
+    <div ng-show="user">
+        <h4> <i>Found user :</i> </h4> <b><i>{{user.name}}</i></b> from {{user.location}}!!
     </div>
+
     <div>{{error}}</div>
 
+    <table ng-show="user">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Lang: </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="repo in data.repos | orderBy:repoSortOrder">
+            <td>{{repo.name}}</td>
+            <td>{{repo.language}}</td>
+        </tr>
+        </tbody>
+    </table>
     <img ng-src="{{user.avatar_url}}" title="{{user.avatar_url}}">
 </div>
 
